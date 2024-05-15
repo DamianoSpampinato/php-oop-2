@@ -7,6 +7,7 @@ class Item{
     public $category;
     public $age;
     public $image;
+    public $product;
     
     
     public function __construct($_name, $_price){
@@ -16,10 +17,11 @@ class Item{
         
     }
     //prendi i dettagli
-    public function getDetails($_category, $_age, $_image){
+    public function getDetails($_category, $_age, $_image,$_product){
         $this->category=$_category;
         $this->age=$_age;
         $this->image=$_image;
+        $this->product=$_product;
     }
 }
 //identificare le classi generiche

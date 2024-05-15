@@ -8,9 +8,9 @@ $itemsArray = [
     $cibo_gatto,
     $cuccia_cane,
 ];
-$cibo_cane-> getDetails('cane', 'adulto', 'https://www.bauzaar.it/media/catalog/product/g/r/grafiche-magento-bauzaar_-_2024-02-13t151801.151.jpg?store=default&image-type=image');
-$cuccia_cane-> getDetails('cane', 'adulto', 'https://arcaplanet.vtexassets.com/arquivos/ids/227610/p-a-y--cuccia-alcazar-70.jpg?v=637454794658030000');
-$cibo_gatto-> getDetails('gatto', 'adulto', 'https://m.media-amazon.com/images/I/81OPuo+tbFL._AC_UF894,1000_QL80_.jpg');
+$cibo_cane-> getDetails('cane', 'adulto', 'https://www.bauzaar.it/media/catalog/product/g/r/grafiche-magento-bauzaar_-_2024-02-13t151801.151.jpg?store=default&image-type=image','alimenti');
+$cuccia_cane-> getDetails('cane', 'adulto', 'https://arcaplanet.vtexassets.com/arquivos/ids/227610/p-a-y--cuccia-alcazar-70.jpg?v=637454794658030000','cucce');
+$cibo_gatto-> getDetails('gatto', 'adulto', 'https://m.media-amazon.com/images/I/81OPuo+tbFL._AC_UF894,1000_QL80_.jpg','alimenti');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,10 +37,17 @@ $cibo_gatto-> getDetails('gatto', 'adulto', 'https://m.media-amazon.com/images/I
                                     <?php echo $item->price; ?>€</p>
                                 </div>
                                 <?php if($item->category=== 'cane'){ ?>
-                                    <div><i class="fa-solid fa-dog"></i></div>
+                                    <div>
+                                        <i class="fa-solid fa-dog"></i> 
+                                        tipologia: <?= $item->product ?>
+                                    </div>
                                 <?php } else{ ?>
-                                    <i class="fa-solid fa-cat"></i>
+                                    <div>
+                                        <i class="fa-solid fa-cat"></i>
+                                        tipologia: <?= $item->product ?>
+                                    </div>
                                     <?php } ?>
+                                
                         </div>
                         
                     </div>
