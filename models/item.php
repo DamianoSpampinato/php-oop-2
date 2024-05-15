@@ -12,7 +12,7 @@ class Item{
     public function __construct($_name, $_price){
         $this->name = $_name;
         $this->price = $_price;
-        var_dump($this);
+        
         
     }
     //prendi i dettagli

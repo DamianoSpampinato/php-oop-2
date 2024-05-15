@@ -17,15 +17,37 @@ $cibo_gatto-> getDetails('gatto', 'adulto', 'https://m.media-amazon.com/images/I
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <?php foreach($itemsArray as $item) {?>
-            <img src="<?php echo $item->image ?>" alt="">
-                <div><?php echo $item->name;?></div>
-                <div><?php echo $item->price; ?></div>
-            <?php } ?>
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+
+            <?php foreach($itemsArray as $item) {?>
+                <div class="col">
+                    <div class="card h-100" style="width: 18rem;">
+                        <img class="img" src="<?php echo $item->image ?>" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $item->name;?></h5>
+                            <p class="card-text">
+                                <div>
+                                    <?php echo $item->price; ?>€</p>
+                                </div>
+                                <?php if($item->category=== 'cane'){ ?>
+                                    <div><i class="fa-solid fa-dog"></i></div>
+                                <?php } else{ ?>
+                                    <i class="fa-solid fa-cat"></i>
+                                    <?php } ?>
+                        </div>
+                        
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+
     </div>
 </body>
 </html>
