@@ -4,7 +4,6 @@ class Item{
     //inizializzare tutte le varibiali public per poi modificarle in corso d'opera
     public $name;
     public $price;
-    public $category;
     public $age;
     public $image;
     public $product;
@@ -16,9 +15,11 @@ class Item{
         
         
     }
+    public function getPrice(){
+        return $this->price;
+    }
     //prendi i dettagli
-    public function getDetails($_category, $_age, $_image,$_product){
-        $this->category=$_category;
+    public function getDetails($_age, $_image,$_product){
         $this->age=$_age;
         $this->image=$_image;
         $this->product=$_product;
