@@ -1,17 +1,22 @@
 <?php
 require_once __DIR__.'/models/item.php';
 require_once __DIR__.'/models/ItemCategory.php';
+try{
 
-$gatto = new ItemCategory('gatto','fa-solid fa-cat');
-$cane = new ItemCategory('cane','fa-solid fa-dog');
-$cibo_cane = new Item('cibo per cani', 29.3, $cane);
-$cibo_gatto = new Item('cibo per gatti', 45, $gatto);
-$cuccia_cane = new Item('cuccia per cani', 100, $cane);
-$itemsArray = [
-    $cibo_cane,
-    $cibo_gatto,
-    $cuccia_cane,
-];
+    $gatto = new ItemCategory('fa-solid fa-cat');
+    $cane = new ItemCategory('fa-solid fa-dog');
+    $cibo_cane = new Item('cibo per cani', 29.3, $cane);
+    $cibo_gatto = new Item('cibo per gatti', 45, $gatto);
+    $cuccia_cane = new Item('cuccia per cani', 100, $cane);
+}catch(Exception $e){
+    echo $e->getMessage();
+    die();
+}
+    $itemsArray = [
+        $cibo_cane,
+        $cibo_gatto,
+        $cuccia_cane,
+    ];
 $cibo_cane-> getDetails('adulto', 'https://www.bauzaar.it/media/catalog/product/g/r/grafiche-magento-bauzaar_-_2024-02-13t151801.151.jpg?store=default&image-type=image','alimenti');
 $cuccia_cane-> getDetails('adulto', 'https://arcaplanet.vtexassets.com/arquivos/ids/227610/p-a-y--cuccia-alcazar-70.jpg?v=637454794658030000','cucce');
 $cibo_gatto-> getDetails('adulto', 'https://m.media-amazon.com/images/I/81OPuo+tbFL._AC_UF894,1000_QL80_.jpg','alimenti');
