@@ -2,12 +2,11 @@
 require_once __DIR__.'/models/item.php';
 require_once __DIR__.'/models/ItemCategory.php';
 
-$cibo_cane = new Item('cibo per cani', 29.3);
-$cibo_cane = new ItemCategory('cane');
-$cibo_gatto = new Item('cibo per gatti', 45);
-$cibo_gatto = new ItemCategory('gatti');
-$cuccia_cane = new Item('cuccia per cani', 100);
-$cuccia_cane = new ItemCategory('cani');
+$gatto = new ItemCategory('gatto','fa-solid fa-cat');
+$cane = new ItemCategory('cane','fa-solid fa-dog');
+$cibo_cane = new Item('cibo per cani', 29.3, $cane);
+$cibo_gatto = new Item('cibo per gatti', 45, $gatto);
+$cuccia_cane = new Item('cuccia per cani', 100, $cane);
 $itemsArray = [
     $cibo_cane,
     $cibo_gatto,
@@ -41,18 +40,10 @@ $cibo_gatto-> getDetails('adulto', 'https://m.media-amazon.com/images/I/81OPuo+t
                                 <div>
                                     <p><?= $item->price?></p>
                                 </div>
-                                <?php if($item->category=== 'cane'){ ?>
                                     <div>
-                                        <i class="fa-solid fa-dog"></i> 
+                                        <i class="<?php echo $item->category->icon?>"></i> 
                                         tipologia: <?= $item->product ?>
-                                    </div>
-                                <?php } else{ ?>
-                                    <div>
-                                        <i class="fa-solid fa-cat"></i>
-                                        tipologia: <?= $item->product ?>
-                                    </div>
-                                    <?php } ?>
-                                
+                                    </div>                         
                         </div>
                         
                     </div>
